@@ -6,16 +6,16 @@ import {
   AlertCircleIcon,
   MailIcon,
   MapPinIcon,
-  ClockIcon } from
+  PhoneIcon } from
 'lucide-react';
 import { services } from '../data/services';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
 const highlights = [
-{ icon: MailIcon, label: 'Email', value: 'hello@synconercm.com' },
-{ icon: MapPinIcon, label: 'Delivery center', value: 'Sri Lanka' },
-{ icon: ClockIcon, label: 'Coverage', value: 'US time zones, 24/7 model' }];
+{ icon: PhoneIcon, label: 'Contact Number', value: '+9470 443 3377' },
+{ icon: MailIcon, label: 'Email Address', value: 'info@synconercm.com' },
+{ icon: MapPinIcon, label: 'Business Address', value: '165, Dippitigoda Road, Kelaniya' }];
 
 
 export function ContactCTA() {
@@ -36,14 +36,37 @@ export function ContactCTA() {
     setForm((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!form.name.trim() || !form.email.trim()) {
       setStatus('error');
       return;
     }
     setStatus('submitting');
-    window.setTimeout(() => setStatus('success'), 1100);
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "52303cd1-e103-44fe-bb0b-13d075c02c98",
+          ...form,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus('success');
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+    }
   };
 
   return (

@@ -1,14 +1,15 @@
 import React from 'react';
-import { LinkedinIcon, MailIcon, MapPinIcon, ShieldCheckIcon } from 'lucide-react';
+import { LinkedinIcon, MailIcon, MapPinIcon, PhoneIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Logo } from './Logo';
 import { services } from '../data/services';
 
 const companyLinks = [
-{ name: 'About us', href: '#about' },
-{ name: 'Why choose us', href: '#why-us' },
-{ name: 'Workflow process', href: '#workflow' },
-{ name: 'Industries served', href: '#industries' },
-{ name: 'Contact', href: '#contact' }];
+{ name: 'About us', href: '/#about' },
+{ name: 'Why choose us', href: '/#why-us' },
+{ name: 'Workflow process', href: '/#workflow' },
+{ name: 'Industries served', href: '/#industries' },
+{ name: 'Contact', href: '/#contact' }];
 
 
 export function Footer() {
@@ -25,7 +26,7 @@ export function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="#contact"
+                href="/#contact"
                 aria-label="LinkedIn"
                 className="inline-flex size-10 items-center justify-center rounded-xl border border-gold-500/20 bg-maroon-900/50 text-gold-400 transition-colors hover:bg-gold-500/20 hover:text-white">
                 
@@ -48,7 +49,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-maroon-100/70">
               {services.map((service) =>
               <li key={service.title}>
-                  <a href="#services" className="transition-colors hover:text-gold-300">
+                  <a href="/#services" className="transition-colors hover:text-gold-300">
                     {service.title}
                   </a>
                 </li>
@@ -77,21 +78,20 @@ export function Footer() {
             </h2>
             <ul className="mt-5 space-y-4 text-sm text-maroon-100/70">
               <li className="flex items-start gap-3">
+                <PhoneIcon className="mt-0.5 size-4 shrink-0 text-gold-400" aria-hidden="true" />
+                <a href="tel:+94704433377" className="hover:text-gold-300">
+                  +9470 443 3377
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
                 <MailIcon className="mt-0.5 size-4 shrink-0 text-gold-400" aria-hidden="true" />
-                <a href="mailto:hello@synconercm.com" className="hover:text-gold-300">
-                  hello@synconercm.com
+                <a href="mailto:info@synconercm.com" className="hover:text-gold-300">
+                 info@synconercm.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPinIcon className="mt-0.5 size-4 shrink-0 text-gold-400" aria-hidden="true" />
-                Sri Lanka
-              </li>
-              <li className="flex items-start gap-3">
-                <ShieldCheckIcon
-                  className="mt-0.5 size-4 shrink-0 text-gold-400"
-                  aria-hidden="true" />
-                
-                HIPAA-aligned operations &amp; signed BAAs
+                165, Dippitigoda Road, Kelaniya
               </li>
             </ul>
           </div>
@@ -99,23 +99,31 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-navy-100/60">
-            &copy; {new Date().getFullYear()} SyncOne RCM. All rights reserved.
+            &copy; {new Date().getFullYear()} SyncOne RCM. All rights reserved. Powered by{' '}
+            <a 
+              href="https://envicdigital.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="font-semibold text-gold-400 hover:text-gold-300 transition-colors"
+            >
+              Envic Digital
+            </a>
           </p>
           <ul className="flex flex-wrap gap-6 text-xs text-navy-100/60">
             <li>
-              <a href="#contact" className="hover:text-white">
+              <Link to="/privacy-policy" className="hover:text-white">
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="hover:text-white">
+              <Link to="/hipaa-compliance" className="hover:text-white">
                 HIPAA Compliance
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="hover:text-white">
+              <Link to="/terms-of-service" className="hover:text-white">
                 Terms of Service
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -5,11 +5,11 @@ import { Logo } from './Logo';
 import { cn } from '../utils/cn';
 
 const menuItems = [
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Technology', href: '#technology' },
-  { name: 'Why Us', href: '#why-us' },
-  { name: 'Industries', href: '#industries' },
+  { name: 'About', href: '/#about' },
+  { name: 'Services', href: '/#services' },
+  { name: 'Technology', href: '/#technology' },
+  { name: 'Why Us', href: '/#why-us' },
+  { name: 'Industries', href: '/#industries' },
 ];
 
 export function Header() {
@@ -38,7 +38,7 @@ export function Header() {
             )}>
 
             {/* Logo — light on dark video, adapts when scrolled */}
-            <a href="#top" aria-label="SyncOne RCM home" className="flex items-center">
+            <a href="/" aria-label="SyncOne RCM home" className="flex items-center">
               <Logo variant={scrolled ? 'dark' : 'light'} showTagline={false} />
             </a>
 
@@ -63,7 +63,7 @@ export function Header() {
             {/* Desktop CTAs */}
             <div className="hidden items-center gap-3 lg:flex">
               <a
-                href="tel:+94000000000"
+                href="tel:+94704433377"
                 className={cn(
                   'flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold backdrop-blur transition-all',
                   scrolled
@@ -74,7 +74,7 @@ export function Header() {
                 Talk to an expert
               </a>
               <a
-                href="#contact"
+                href="/#contact"
                 className="rounded-full bg-maroon-800 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-all hover:bg-maroon-700 hover:shadow-glow">
                 Request Free Consultation
               </a>
@@ -117,7 +117,7 @@ export function Header() {
                 ))}
               </ul>
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setMenuOpen(false)}
                 className="mt-6 block rounded-full bg-maroon-800 px-5 py-3 text-center text-sm font-semibold text-white shadow-soft">
                 Request Free Consultation
