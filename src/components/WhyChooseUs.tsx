@@ -91,11 +91,12 @@ export function WhyChooseUs() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.5, delay: index % 2 * 0.08 }}
-              className="rounded-2xl border border-maroon-800/10 bg-white p-6 shadow-soft transition-all hover:border-gold-500/30">
+              transition={{ duration: 0.5, delay: (index % 2) * 0.08 }}
+              whileHover={{ y: -5, scale: 1.02 }}
+              className="group rounded-2xl border border-maroon-800/10 bg-white p-6 shadow-soft transition-all hover:border-gold-500/40 hover:shadow-lift">
               
-                <span className="inline-flex size-11 items-center justify-center rounded-xl bg-gold-50 text-gold-600 border border-gold-200/50">
-                  <reason.icon className="size-5" aria-hidden="true" />
+                <span className="inline-flex size-11 items-center justify-center rounded-xl bg-gold-50 text-gold-600 border border-gold-200/50 transition-colors group-hover:bg-gold-500 group-hover:text-white border-transparent">
+                  <reason.icon className="size-5 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
                 </span>
                 <h3 className="mt-5 font-display text-base font-bold text-maroon-950">
                   {reason.title}

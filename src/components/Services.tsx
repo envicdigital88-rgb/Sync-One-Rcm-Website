@@ -24,7 +24,12 @@ export function Services() {
   return (
     <section id="services" className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon-800">
             Healthcare RCM services
           </p>
@@ -35,7 +40,7 @@ export function Services() {
             Engage us for a single function or the full cycle. Our teams plug into your
             existing systems and workflows, with quality assurance built into each step.
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
@@ -43,15 +48,15 @@ export function Services() {
             return (
               <motion.article
                 key={service.title}
-                initial={{ opacity: 0, y: 22 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.5, delay: index % 3 * 0.08 }}
-                whileHover={{ y: -6 }}
+                transition={{ duration: 0.5, delay: index % 3 * 0.09 }}
+                whileHover={{ y: -6, scale: 1.01 }}
                 className="group flex flex-col rounded-3xl border border-maroon-800/10 bg-white p-7 shadow-soft transition-all duration-300 hover:border-gold-500/40 hover:shadow-lift">
                 
-                <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-maroon-50 text-maroon-800 transition-colors duration-300 group-hover:bg-maroon-800 group-hover:text-gold-400">
-                  <Icon className="size-6" aria-hidden="true" />
+                <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-maroon-50 text-maroon-800 transition-all duration-300 group-hover:bg-maroon-800 group-hover:text-gold-400 group-hover:scale-105">
+                  <Icon className="size-6 transition-transform duration-300 group-hover:rotate-6" aria-hidden="true" />
                 </span>
                 <h3 className="mt-6 font-display text-lg font-bold text-maroon-950">
                   {service.title}
@@ -78,7 +83,7 @@ export function Services() {
                   className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-maroon-800 transition-colors hover:text-gold-600">
                   
                   Discuss this service
-                  <ArrowUpRightIcon className="size-4" aria-hidden="true" />
+                  <ArrowUpRightIcon className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
                 </a>
               </motion.article>);
 

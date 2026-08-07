@@ -70,9 +70,15 @@ export function ContactCTA() {
               </p>
 
               <ul className="mt-10 space-y-5">
-                {highlights.map((item) =>
-                <li key={item.label} className="flex items-start gap-4">
-                    <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-xl border border-gold-500/20 bg-maroon-900/50 text-gold-400 backdrop-blur-md">
+                {highlights.map((item, idx) =>
+                <motion.li
+                  key={item.label}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  className="flex items-start gap-4">
+                    <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-xl border border-gold-500/20 bg-maroon-900/50 text-gold-400 backdrop-blur-md transition-transform duration-300 hover:scale-110">
                       <item.icon className="size-5" aria-hidden="true" />
                     </span>
                     <div>
@@ -81,15 +87,17 @@ export function ContactCTA() {
                       </p>
                       <p className="mt-1 text-sm font-medium text-white">{item.value}</p>
                     </div>
-                  </li>
+                  </motion.li>
                 )}
               </ul>
             </div>
 
             <div className="rounded-3xl border border-gold-500/20 bg-maroon-900/40 p-6 backdrop-blur-xl sm:p-8">
               {status === 'success' ?
-              <div
+              <motion.div
                 role="status"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
                 className="flex h-full flex-col items-center justify-center py-10 text-center text-white">
                 
                   <CheckCircle2Icon className="size-12 text-gold-400" aria-hidden="true" />
@@ -116,7 +124,7 @@ export function ContactCTA() {
                   
                     Submit another request
                   </button>
-                </div> :
+                </motion.div> :
 
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
                   <div className="grid gap-5 sm:grid-cols-2">
@@ -128,7 +136,7 @@ export function ContactCTA() {
                       required
                       value={form.name}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-gold-500/20 bg-maroon-950/60 px-4 py-3 text-sm text-white placeholder:text-maroon-200/40 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30"
+                      className="w-full rounded-xl border border-gold-500/20 bg-maroon-950/60 px-4 py-3 text-sm text-white placeholder:text-maroon-200/40 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30 transition-all"
                       placeholder="Jane Doe" />
                     
                     </Field>
@@ -139,7 +147,7 @@ export function ContactCTA() {
                       type="text"
                       value={form.organization}
                       onChange={handleChange}
-                      className="w-full rounded-xl border border-gold-500/20 bg-maroon-950/60 px-4 py-3 text-sm text-white placeholder:text-maroon-200/40 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30"
+                      className="w-full rounded-xl border border-gold-500/20 bg-maroon-950/60 px-4 py-3 text-sm text-white placeholder:text-maroon-200/40 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30 transition-all"
                       placeholder="Practice or health system" />
                     
                     </Field>
@@ -153,7 +161,7 @@ export function ContactCTA() {
                     required
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-gold-500/20 bg-maroon-950/60 px-4 py-3 text-sm text-white placeholder:text-maroon-200/40 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30"
+                    className="w-full rounded-xl border border-gold-500/20 bg-maroon-950/60 px-4 py-3 text-sm text-white placeholder:text-maroon-200/40 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30 transition-all"
                     placeholder="you@organization.com" />
                   
                   </Field>
@@ -164,7 +172,7 @@ export function ContactCTA() {
                     name="service"
                     value={form.service}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-gold-500/20 bg-maroon-950/60 px-4 py-3 text-sm text-white focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30">
+                    className="w-full rounded-xl border border-gold-500/20 bg-maroon-950/60 px-4 py-3 text-sm text-white focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30 transition-all">
                     
                       {services.map((service) =>
                     <option key={service.title} value={service.title} className="bg-maroon-950 text-white">
@@ -182,7 +190,7 @@ export function ContactCTA() {
                     rows={4}
                     value={form.message}
                     onChange={handleChange}
-                    className="w-full resize-none rounded-xl border border-gold-500/20 bg-maroon-950/60 px-4 py-3 text-sm text-white placeholder:text-maroon-200/40 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30"
+                    className="w-full resize-none rounded-xl border border-gold-500/20 bg-maroon-950/60 px-4 py-3 text-sm text-white placeholder:text-maroon-200/40 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-400/30 transition-all"
                     placeholder="Specialties, volumes, current platform, and pain points" />
                   
                   </Field>
@@ -197,7 +205,9 @@ export function ContactCTA() {
                     </p>
                 }
 
-                  <button
+                  <motion.button
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={status === 'submitting'}
                   className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-gold-500 text-base font-bold text-maroon-950 transition-all hover:bg-gold-400 hover:shadow-glow disabled:cursor-not-allowed disabled:opacity-70">
@@ -210,7 +220,7 @@ export function ContactCTA() {
 
                   'Request Free Consultation'
                   }
-                  </button>
+                  </motion.button>
                   <p className="text-center text-xs text-maroon-200/60">
                     Your information is handled under HIPAA-aligned confidentiality
                     practices.

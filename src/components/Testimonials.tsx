@@ -43,13 +43,14 @@ export function Testimonials() {
           {testimonials.map((testimonial, index) =>
           <motion.figure
             key={testimonial.name}
-            initial={{ opacity: 0, y: 22 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="flex flex-col rounded-3xl border border-maroon-800/10 bg-white p-7 shadow-soft transition-all hover:border-gold-500/30 hover:shadow-lift">
+            transition={{ duration: 0.5, delay: index * 0.12 }}
+            whileHover={{ y: -6, scale: 1.02 }}
+            className="group flex flex-col rounded-3xl border border-maroon-800/10 bg-white p-7 shadow-soft transition-all duration-300 hover:border-gold-500/40 hover:shadow-lift">
             
-              <QuoteIcon className="size-7 text-gold-500" aria-hidden="true" />
+              <QuoteIcon className="size-7 text-gold-500 transition-transform duration-300 group-hover:scale-110 group-hover:text-gold-400" aria-hidden="true" />
               <blockquote className="mt-5 flex-1 text-sm leading-relaxed text-navy-700 font-medium">
                 &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
@@ -58,11 +59,16 @@ export function Testimonials() {
               aria-label="Rated 5 out of 5">
               
                 {Array.from({ length: 5 }).map((_, starIndex) =>
-              <StarIcon
+              <motion.div
                 key={starIndex}
-                className="size-4 fill-current text-gold-500"
-                aria-hidden="true" />
-
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.2, delay: index * 0.1 + starIndex * 0.05 }}>
+                <StarIcon
+                  className="size-4 fill-current text-gold-500"
+                  aria-hidden="true" />
+              </motion.div>
               )}
               </div>
               <figcaption className="mt-4 border-t border-maroon-800/10 pt-4">

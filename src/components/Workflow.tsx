@@ -52,21 +52,26 @@ export function Workflow() {
         </div>
 
         <div className="relative mt-14">
-          <div
-            className="absolute left-0 right-0 top-6 hidden h-px bg-gold-300/60 lg:block"
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="absolute left-0 right-0 top-6 hidden h-px origin-left bg-gradient-to-r from-maroon-800/20 via-gold-400 to-maroon-800/20 lg:block"
             aria-hidden="true" />
           
           <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {steps.map((item, index) =>
             <motion.li
               key={item.step}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.5, delay: index % 3 * 0.1 }}
-              className="relative rounded-3xl border border-maroon-800/10 bg-white p-7 shadow-soft transition-all hover:border-gold-500/30 hover:shadow-lift">
+              transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group relative rounded-3xl border border-maroon-800/10 bg-white p-7 shadow-soft transition-all duration-300 hover:border-gold-500/40 hover:shadow-lift">
               
-                <span className="inline-flex size-12 items-center justify-center rounded-full bg-maroon-800 font-display text-sm font-extrabold text-gold-400 shadow-soft">
+                <span className="inline-flex size-12 items-center justify-center rounded-full bg-maroon-800 font-display text-sm font-extrabold text-gold-400 shadow-soft transition-transform duration-300 group-hover:scale-110 group-hover:bg-maroon-900">
                   {item.step}
                 </span>
                 <h3 className="mt-5 font-display text-base font-bold text-maroon-950">

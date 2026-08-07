@@ -16,15 +16,21 @@ export function Stats() {
           {stats.map((stat, index) =>
           <motion.div
             key={stat.label}
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.5, delay: index * 0.08 }}
-            className="bg-white p-7 lg:p-8 hover:bg-maroon-50/30 transition-colors">
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ scale: 1.02 }}
+            className="group bg-white p-7 lg:p-8 hover:bg-maroon-50/40 transition-colors duration-300">
             
-              <p className="font-display text-4xl font-extrabold tracking-tight text-maroon-900">
+              <motion.p
+                initial={{ scale: 0.8 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 + 0.15 }}
+                className="font-display text-4xl font-extrabold tracking-tight text-maroon-900 transition-transform duration-300 group-hover:scale-105">
                 {stat.value}
-              </p>
+              </motion.p>
               <p className="mt-3 text-sm font-bold text-maroon-950">{stat.label}</p>
               <p className="mt-1 text-sm text-navy-600 font-medium">{stat.sub}</p>
             </motion.div>

@@ -79,9 +79,10 @@ export function Technology() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="rounded-2xl border border-gold-500/20 bg-maroon-900/40 p-5 backdrop-blur-md">
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="group rounded-2xl border border-gold-500/20 bg-maroon-900/40 p-5 backdrop-blur-md transition-colors hover:border-gold-400/40 hover:bg-maroon-900/60">
                 
-                  <capability.icon className="size-5 text-gold-400" aria-hidden="true" />
+                  <capability.icon className="size-5 text-gold-400 transition-transform duration-300 group-hover:scale-110 group-hover:text-gold-300" aria-hidden="true" />
                   <h3 className="mt-4 font-display text-sm font-bold text-white">
                     {capability.title}
                   </h3>
@@ -99,13 +100,15 @@ export function Technology() {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6 }}>
             
-            <div className="rounded-4xl border border-gold-500/20 bg-maroon-900/40 p-3 backdrop-blur-md">
+            <motion.div
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden rounded-4xl border border-gold-500/20 bg-maroon-900/40 p-3 backdrop-blur-md shadow-lift">
               <img
                 src={DASHBOARD_IMAGE}
                 alt="Revenue cycle analytics dashboard showing collections trends and denial breakdowns"
-                className="w-full rounded-3xl object-cover" />
-              
-            </div>
+                className="w-full rounded-3xl object-cover transition-transform duration-500 hover:scale-105" />
+            </motion.div>
 
             <div className="mt-8 rounded-3xl border border-gold-500/20 bg-maroon-900/40 p-6 backdrop-blur-md">
               <h3 className="font-display text-sm font-bold uppercase tracking-[0.16em] text-gold-400">
@@ -118,13 +121,17 @@ export function Technology() {
                       {group.label}
                     </p>
                     <ul className="mt-2 flex flex-wrap gap-2">
-                      {group.items.map((item) =>
-                    <li
+                      {group.items.map((item, itemIdx) =>
+                    <motion.li
                       key={item}
-                      className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium text-white/90">
-                      
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: itemIdx * 0.03 }}
+                      whileHover={{ scale: 1.05 }}
+                      className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 transition-colors hover:border-gold-400/40 hover:bg-gold-500/20">
                           {item}
-                        </li>
+                        </motion.li>
                     )}
                     </ul>
                   </div>

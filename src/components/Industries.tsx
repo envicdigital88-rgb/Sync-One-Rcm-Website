@@ -65,14 +65,15 @@ export function Industries() {
           {industries.map((industry, index) =>
           <motion.div
             key={industry.title}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, delay: index % 3 * 0.08 }}
-            className="group bg-white p-8 transition-colors duration-300 hover:bg-maroon-50/50">
+            transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+            whileHover={{ y: -3 }}
+            className="group bg-white p-8 transition-all duration-300 hover:bg-maroon-50/60">
             
               <industry.icon
-              className="size-6 text-maroon-800 transition-colors duration-300 group-hover:text-gold-600"
+              className="size-6 text-maroon-800 transition-all duration-300 group-hover:scale-110 group-hover:text-gold-600"
               aria-hidden="true" />
             
               <h3 className="mt-5 font-display text-base font-bold text-maroon-950">

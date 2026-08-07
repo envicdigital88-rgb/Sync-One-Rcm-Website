@@ -29,27 +29,50 @@ export function About() {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6 }}>
             
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon-800">
+            <motion.p
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon-800">
               About SyncOne RCM
-            </p>
-            <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-maroon-950 sm:text-4xl">
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mt-4 font-display text-3xl font-extrabold tracking-tight text-maroon-950 sm:text-4xl">
               A trusted extension of your revenue cycle team
-            </h2>
-            <p className="mt-5 text-base leading-relaxed text-navy-600">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-5 text-base leading-relaxed text-navy-600">
               SyncOne RCM delivers reliable, accurate, and results-driven outsourcing
               solutions to healthcare organizations. Our leadership team brings decades
               of proven expertise in revenue cycle management, operational excellence,
               and quality-driven service delivery.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-navy-600">
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="mt-4 text-base leading-relaxed text-navy-600">
               We provide comprehensive end-to-end services — from insurance verification
               and charge entry through payment posting, accounts receivable management,
               denial management, quality assurance, and operational consulting — building
               long-term partnerships that are scalable, transparent, and value-driven.
-            </p>
+            </motion.p>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-maroon-800/10 bg-white p-6 shadow-soft transition-all hover:border-gold-500/30">
+              <motion.div
+                whileHover={{ y: -4, scale: 1.01 }}
+                transition={{ duration: 0.2 }}
+                className="rounded-2xl border border-maroon-800/10 bg-white p-6 shadow-soft transition-all hover:border-gold-500/40 hover:shadow-lift">
                 <CompassIcon className="size-6 text-maroon-800" aria-hidden="true" />
                 <h3 className="mt-4 font-display text-base font-bold text-maroon-950">
                   Our Vision
@@ -58,8 +81,11 @@ export function About() {
                   To redefine healthcare revenue operations through trusted
                   partnerships, operational excellence, and intelligent RCM solutions.
                 </p>
-              </div>
-              <div className="rounded-2xl border border-maroon-800/10 bg-white p-6 shadow-soft transition-all hover:border-gold-500/30">
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -4, scale: 1.01 }}
+                transition={{ duration: 0.2 }}
+                className="rounded-2xl border border-maroon-800/10 bg-white p-6 shadow-soft transition-all hover:border-gold-500/40 hover:shadow-lift">
                 <TargetIcon className="size-6 text-maroon-800" aria-hidden="true" />
                 <h3 className="mt-4 font-display text-base font-bold text-maroon-950">
                   Our Mission
@@ -68,7 +94,7 @@ export function About() {
                   To synchronize people, processes, and technology into efficient revenue
                   cycle operations that drive measurable value.
                 </p>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 
@@ -79,12 +105,11 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:pt-6">
             
-            <div className="overflow-hidden rounded-3xl border border-maroon-800/15 shadow-lift">
+            <div className="group overflow-hidden rounded-3xl border border-maroon-800/15 shadow-lift">
               <img
                 src={ABOUT_IMAGE}
                 alt="SyncOne RCM billing specialists collaborating on claims data"
-                className="h-72 w-full object-cover sm:h-80" />
-              
+                className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-80" />
             </div>
 
             <div className="mt-8 rounded-3xl border border-maroon-800/10 bg-white p-7 shadow-soft">
@@ -92,17 +117,22 @@ export function About() {
                 Our core values
               </h3>
               <ul className="mt-5 grid gap-x-6 gap-y-4 sm:grid-cols-2">
-                {values.map((value) =>
-                <li key={value.name} className="flex gap-3">
+                {values.map((value, idx) =>
+                <motion.li
+                  key={value.name}
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.05 * idx }}
+                  className="flex gap-3">
                     <CheckCircle2Icon
-                    className="mt-0.5 size-4 shrink-0 text-gold-500"
-                    aria-hidden="true" />
-                  
+                      className="mt-0.5 size-4 shrink-0 text-gold-500"
+                      aria-hidden="true" />
                     <div>
                       <p className="text-sm font-semibold text-maroon-900">{value.name}</p>
                       <p className="text-sm text-navy-600">{value.copy}</p>
                     </div>
-                  </li>
+                  </motion.li>
                 )}
               </ul>
             </div>
