@@ -1,4 +1,5 @@
 import React from 'react';
+import { Preloader } from './components/Preloader';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Stats } from './components/Stats';
@@ -15,6 +16,7 @@ import { Footer } from './components/Footer';
 export function App() {
   return (
     <div className="w-full bg-white">
+      <Preloader />
       <Header />
       <main className="overflow-x-hidden">
         <Hero />
@@ -29,6 +31,6 @@ export function App() {
         <ContactCTA />
       </main>
       <Footer />
-    </div>);
-
+    </div>
+  );
 }
