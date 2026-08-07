@@ -13,11 +13,11 @@ const fadeUp = {
 export function Hero() {
   return (
     <>
-      {/* ── Hero — full-bleed video, no colour overlay ── */}
+      {/* ── Hero — full-bleed video ── */}
       <section id="top" className="relative overflow-hidden">
 
-        {/* Video: fills the container, no invert, no colour tint */}
-        <div className="relative aspect-[2/3] sm:aspect-video lg:min-h-[92vh]">
+        {/* Video container with mobile-friendly min-height */}
+        <div className="relative min-h-[580px] sm:aspect-video lg:min-h-[92vh] flex flex-col justify-end">
           <video
             autoPlay
             loop
@@ -28,91 +28,77 @@ export function Hero() {
             src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477"
           />
 
-          {/* Minimal bottom-only gradient so text stays readable — no colour tint */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+          {/* Bottom-only gradient so text stays readable on mobile & desktop */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-          {/* ── Hero content — lower-left, matching tailark layout ── */}
-          <div className="absolute inset-0 flex flex-col justify-end">
-            <div className="mx-auto w-full max-w-7xl px-6 pb-14 lg:px-12 lg:pb-20">
+          {/* ── Hero content ── */}
+          <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-8 pt-24 sm:px-6 sm:pb-14 lg:px-12 lg:pb-20">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              transition={{ staggerChildren: 0.12 }}
+              className="max-w-2xl">
+
+              {/* Headline */}
+              <motion.h1
+                variants={fadeUp}
+                transition={{ duration: 0.6 }}
+                className="font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+                Maximize Healthcare Revenue With{' '}
+                <span className="bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 bg-clip-text text-transparent">
+                  Intelligent Billing
+                </span>
+              </motion.h1>
+
+              {/* Sub-copy */}
+              <motion.p
+                variants={fadeUp}
+                transition={{ duration: 0.6 }}
+                className="mt-4 max-w-xl text-balance text-sm leading-relaxed text-white/80 sm:mt-5 sm:text-base lg:text-lg">
+                Empowering healthcare practices and hospitals to eliminate claim denials, accelerate reimbursements, and optimize financial performance effortlessly.
+              </motion.p>
+
+              {/* CTAs */}
               <motion.div
-                initial="hidden"
-                animate="visible"
-                transition={{ staggerChildren: 0.12 }}
-                className="max-w-2xl">
+                variants={fadeUp}
+                transition={{ duration: 0.6 }}
+                className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center">
 
-                {/* Badge */}
-                <motion.span
-                  variants={fadeUp}
-                  transition={{ duration: 0.5 }}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-white/90 backdrop-blur-md">
-                  <span className="size-2 rounded-full bg-gold-400 animate-pulse" aria-hidden="true" />
-                  End-to-end revenue cycle management
-                </motion.span>
+                <a
+                  href="#contact"
+                  className="group inline-flex h-11 items-center justify-center rounded-full bg-maroon-800 px-5 text-sm font-semibold text-white shadow-soft transition-all hover:bg-maroon-700 hover:shadow-glow sm:w-auto">
+                  <span className="text-nowrap">Request Free Consultation</span>
+                  <ChevronRightIcon
+                    className="ml-1 size-4 transition-transform duration-200 group-hover:translate-x-1 text-gold-400"
+                    aria-hidden="true" />
+                </a>
 
-                {/* Headline */}
-                <motion.h1
-                  variants={fadeUp}
-                  transition={{ duration: 0.6 }}
-                  className="mt-5 text-balance font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-                  Transform Your Healthcare Revenue Cycle With{' '}
-                  <span className="bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 bg-clip-text text-transparent">
-                    Intelligent Billing
-                  </span>{' '}
-                  Solutions
-                </motion.h1>
-
-                {/* Sub-copy */}
-                <motion.p
-                  variants={fadeUp}
-                  transition={{ duration: 0.6 }}
-                  className="mt-5 max-w-xl text-balance text-base leading-relaxed text-white/70 sm:text-lg">
-                  We help hospitals, physicians, and healthcare organizations maximize
-                  reimbursements, reduce claim denials, and improve financial performance
-                  through technology-driven RCM solutions.
-                </motion.p>
-
-                {/* CTAs */}
-                <motion.div
-                  variants={fadeUp}
-                  transition={{ duration: 0.6 }}
-                  className="mt-8 flex flex-wrap items-center gap-3">
-
-                  <a
-                    href="#contact"
-                    className="group inline-flex h-11 items-center justify-center rounded-full bg-maroon-800 pl-5 pr-3 text-sm font-semibold text-white shadow-soft transition-all hover:bg-maroon-700 hover:shadow-glow">
-                    <span className="text-nowrap">Request Free Consultation</span>
-                    <ChevronRightIcon
-                      className="ml-1 size-4 transition-transform duration-200 group-hover:translate-x-1 text-gold-400"
-                      aria-hidden="true" />
-                  </a>
-
-                  <a
-                    href="#services"
-                    className="inline-flex h-11 items-center justify-center rounded-full border border-white/25 px-5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-gold-400/50 hover:bg-white/10">
-                    <span className="text-nowrap">Explore Services</span>
-                  </a>
-                </motion.div>
-
-                {/* Trust bullets */}
-                <motion.ul
-                  variants={fadeUp}
-                  transition={{ duration: 0.6 }}
-                  className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-white/55">
-                  <li className="flex items-center gap-1.5">
-                    <ShieldCheckIcon className="size-4 shrink-0 text-gold-400" aria-hidden="true" />
-                    HIPAA-aligned processes
-                  </li>
-                  <li className="flex items-center gap-1.5">
-                    <TrendingUpIcon className="size-4 shrink-0 text-gold-400" aria-hidden="true" />
-                    Clean claim rate focus
-                  </li>
-                  <li className="flex items-center gap-1.5">
-                    <ActivityIcon className="size-4 shrink-0 text-gold-400" aria-hidden="true" />
-                    24/7 delivery model
-                  </li>
-                </motion.ul>
+                <a
+                  href="#services"
+                  className="inline-flex h-11 items-center justify-center rounded-full border border-white/25 px-5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-gold-400/50 hover:bg-white/10 sm:w-auto">
+                  <span className="text-nowrap">Explore Services</span>
+                </a>
               </motion.div>
-            </div>
+
+              {/* Trust bullets */}
+              <motion.ul
+                variants={fadeUp}
+                transition={{ duration: 0.6 }}
+                className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs font-medium text-white/80 sm:mt-7 sm:text-sm">
+                <li className="flex items-center gap-1.5">
+                  <ShieldCheckIcon className="size-4 shrink-0 text-gold-400" aria-hidden="true" />
+                  HIPAA Compliant &amp; Secure
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <TrendingUpIcon className="size-4 shrink-0 text-gold-400" aria-hidden="true" />
+                  98%+ Clean Claim Rate
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <ActivityIcon className="size-4 shrink-0 text-gold-400" aria-hidden="true" />
+                  24/7 Dedicated RCM Support
+                </li>
+              </motion.ul>
+            </motion.div>
           </div>
         </div>
       </section>
