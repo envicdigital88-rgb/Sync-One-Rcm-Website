@@ -18,12 +18,12 @@ export function Stats() {
           src="/billing-team.png"
           alt=""
           aria-hidden="true"
-          className="h-full w-full object-cover object-top"
+          className="h-full w-full object-cover object-top brightness-110 contrast-105"
         />
-        {/* Maroon color blend - layered so image is visible but branded */}
-        <div className="absolute inset-0 bg-maroon-950/70 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-r from-maroon-950/90 via-maroon-900/60 to-maroon-950/75" />
-        <div className="absolute inset-0 bg-gradient-to-t from-maroon-950/80 via-transparent to-maroon-950/50" />
+        {/* Softer maroon tint so the background image stays visible */}
+        <div className="absolute inset-0 bg-maroon-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-maroon-950/40 via-maroon-900/20 to-maroon-950/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-maroon-950/35 via-transparent to-maroon-950/20" />
       </div>
 
       {/* ── Content ── */}
