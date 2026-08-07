@@ -46,7 +46,12 @@ export function Industries() {
   return (
     <section id="industries" className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon-800">
               Industries served
@@ -59,17 +64,17 @@ export function Industries() {
             Each engagement is staffed with specialists familiar with your payer mix,
             specialty coding rules, and platform of record.
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-maroon-800/10 bg-maroon-800/10 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((industry, index) =>
           <motion.div
             key={industry.title}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 40, scale: 0.9, rotateX: -10 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
-            whileHover={{ y: -3 }}
+            transition={{ duration: 0.6, delay: (index % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -4, scale: 1.02 }}
             className="group bg-white p-8 transition-all duration-300 hover:bg-maroon-50/60">
             
               <industry.icon

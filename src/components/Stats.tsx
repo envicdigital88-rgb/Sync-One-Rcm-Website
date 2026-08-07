@@ -16,11 +16,11 @@ export function Stats() {
           {stats.map((stat, index) =>
           <motion.div
             key={stat.label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 40, scale: 0.85 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ scale: 1.03 }}
             className="group bg-white p-7 lg:p-8 hover:bg-maroon-50/40 transition-colors duration-300">
             
               <motion.p

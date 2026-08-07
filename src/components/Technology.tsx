@@ -54,10 +54,10 @@ export function Technology() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}>
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
             
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-400">
               AI &amp; technology advantage
@@ -75,11 +75,11 @@ export function Technology() {
               {capabilities.map((capability, index) =>
               <motion.div
                 key={capability.title}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 40, scale: 0.9, rotateX: -10 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                whileHover={{ y: -4, scale: 1.02 }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -5, scale: 1.03 }}
                 className="group rounded-2xl border border-gold-500/20 bg-maroon-900/40 p-5 backdrop-blur-md transition-colors hover:border-gold-400/40 hover:bg-maroon-900/60">
                 
                   <capability.icon className="size-5 text-gold-400 transition-transform duration-300 group-hover:scale-110 group-hover:text-gold-300" aria-hidden="true" />
@@ -95,10 +95,10 @@ export function Technology() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}>
+            initial={{ opacity: 0, x: 70, scale: 0.9, rotateY: -15 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1, rotateY: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
             
             <motion.div
               whileHover={{ scale: 1.02 }}

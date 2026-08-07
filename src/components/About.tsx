@@ -24,13 +24,13 @@ export function About() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-start gap-14 lg:grid-cols-2 lg:gap-16">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}>
+            initial={{ opacity: 0, x: -60, filter: 'blur(4px)' }}
+            whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
             
             <motion.p
-              initial={{ opacity: 0, x: -16 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
@@ -38,15 +38,15 @@ export function About() {
               About SyncOne RCM
             </motion.p>
             <motion.h2
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
               className="mt-4 font-display text-3xl font-extrabold tracking-tight text-maroon-950 sm:text-4xl">
               A trusted extension of your revenue cycle team
             </motion.h2>
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -57,7 +57,7 @@ export function About() {
               and quality-driven service delivery.
             </motion.p>
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.25 }}
@@ -70,8 +70,11 @@ export function About() {
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               <motion.div
-                whileHover={{ y: -4, scale: 1.01 }}
-                transition={{ duration: 0.2 }}
+                initial={{ opacity: 0, y: 40, scale: 0.9, rotateX: -10 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
+                whileHover={{ y: -6, scale: 1.02 }}
                 className="rounded-2xl border border-maroon-800/10 bg-white p-6 shadow-soft transition-all hover:border-gold-500/40 hover:shadow-lift">
                 <CompassIcon className="size-6 text-maroon-800" aria-hidden="true" />
                 <h3 className="mt-4 font-display text-base font-bold text-maroon-950">
@@ -83,8 +86,11 @@ export function About() {
                 </p>
               </motion.div>
               <motion.div
-                whileHover={{ y: -4, scale: 1.01 }}
-                transition={{ duration: 0.2 }}
+                initial={{ opacity: 0, y: 40, scale: 0.9, rotateX: -10 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
+                whileHover={{ y: -6, scale: 1.02 }}
                 className="rounded-2xl border border-maroon-800/10 bg-white p-6 shadow-soft transition-all hover:border-gold-500/40 hover:shadow-lift">
                 <TargetIcon className="size-6 text-maroon-800" aria-hidden="true" />
                 <h3 className="mt-4 font-display text-base font-bold text-maroon-950">
@@ -99,10 +105,10 @@ export function About() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            initial={{ opacity: 0, x: 60, scale: 0.94 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:pt-6">
             
             <div className="relative group overflow-hidden rounded-3xl shadow-[0_20px_50px_-10px_rgba(91,6,38,0.18)] border border-maroon-800/10">

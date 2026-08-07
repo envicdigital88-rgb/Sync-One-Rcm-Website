@@ -25,10 +25,10 @@ export function Services() {
     <section id="services" className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon-800">
             Healthcare RCM services
@@ -48,11 +48,11 @@ export function Services() {
             return (
               <motion.article
                 key={service.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 50, scale: 0.9, rotateX: -12 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.5, delay: index % 3 * 0.09 }}
-                whileHover={{ y: -6, scale: 1.01 }}
+                transition={{ duration: 0.6, delay: (index % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -8, scale: 1.02 }}
                 className="group flex flex-col rounded-3xl border border-maroon-800/10 bg-white p-7 shadow-soft transition-all duration-300 hover:border-gold-500/40 hover:shadow-lift">
                 
                 <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-maroon-50 text-maroon-800 transition-all duration-300 group-hover:bg-maroon-800 group-hover:text-gold-400 group-hover:scale-105">

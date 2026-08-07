@@ -50,10 +50,10 @@ export function ContactCTA() {
     <section id="contact" className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 60, scale: 0.94, rotateX: -6 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="overflow-hidden rounded-4xl border border-gold-500/20 bg-maroon-950 shadow-lift">
           
           <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-2 lg:gap-16">

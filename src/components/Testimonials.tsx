@@ -43,11 +43,11 @@ export function Testimonials() {
           {testimonials.map((testimonial, index) =>
           <motion.figure
             key={testimonial.name}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50, scale: 0.9, rotateZ: index % 2 === 0 ? -3 : 3 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1, rotateZ: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, delay: index * 0.12 }}
-            whileHover={{ y: -6, scale: 1.02 }}
+            transition={{ duration: 0.7, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -8, scale: 1.03 }}
             className="group flex flex-col rounded-3xl border border-maroon-800/10 bg-white p-7 shadow-soft transition-all duration-300 hover:border-gold-500/40 hover:shadow-lift">
             
               <QuoteIcon className="size-7 text-gold-500 transition-transform duration-300 group-hover:scale-110 group-hover:text-gold-400" aria-hidden="true" />

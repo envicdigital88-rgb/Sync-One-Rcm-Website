@@ -51,10 +51,10 @@ export function WhyChooseUs() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}>
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
             
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-maroon-800">
               Why choose SyncOne RCM
@@ -66,7 +66,12 @@ export function WhyChooseUs() {
               Healthcare organizations do not need another vendor — they need a partner
               who is measured on the same financial outcomes they are.
             </p>
-            <div className="mt-8 overflow-hidden rounded-3xl border border-maroon-800/10 bg-white p-2 shadow-lift">
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.92 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="mt-8 overflow-hidden rounded-3xl border border-maroon-800/10 bg-white p-2 shadow-lift">
               <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-maroon-50/60 to-white">
                 <img
                   src={SECURITY_IMAGE}
@@ -86,18 +91,18 @@ export function WhyChooseUs() {
                   BAAs, and full audit trails across every workflow.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           <div className="grid gap-5 sm:grid-cols-2">
             {reasons.map((reason, index) =>
             <motion.div
               key={reason.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50, scale: 0.88, rotateX: -12 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.5, delay: (index % 2) * 0.08 }}
-              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ duration: 0.6, delay: (index % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -6, scale: 1.03 }}
               className="group rounded-2xl border border-maroon-800/10 bg-white p-6 shadow-soft transition-all hover:border-gold-500/40 hover:shadow-lift">
               
                 <span className="inline-flex size-11 items-center justify-center rounded-xl bg-gold-50 text-gold-600 border border-gold-200/50 transition-colors group-hover:bg-gold-500 group-hover:text-white border-transparent">
