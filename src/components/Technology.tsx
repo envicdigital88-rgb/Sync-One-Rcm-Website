@@ -101,13 +101,19 @@ export function Technology() {
             transition={{ duration: 0.6 }}>
             
             <motion.div
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden rounded-4xl border border-gold-500/20 bg-maroon-900/40 p-3 backdrop-blur-md shadow-lift">
-              <img
-                src={DASHBOARD_IMAGE}
-                alt="Revenue cycle analytics dashboard showing collections trends and denial breakdowns"
-                className="w-full rounded-3xl object-cover transition-transform duration-500 hover:scale-105" />
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.4 }}
+              className="relative overflow-hidden rounded-4xl border border-gold-500/30 bg-maroon-900/30 p-2 backdrop-blur-xl shadow-[0_0_60px_rgba(91,6,38,0.6)]">
+              <div className="relative overflow-hidden rounded-3xl">
+                <img
+                  src={DASHBOARD_IMAGE}
+                  alt="Revenue cycle analytics dashboard showing collections trends and denial breakdowns"
+                  className="w-full object-cover transition-transform duration-700 hover:scale-105 [mask-image:radial-gradient(ellipse_at_center,black_82%,transparent_100%)]" />
+                
+                {/* Seamless dark maroon gradient overlay for edge blending */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-maroon-950/70 via-transparent to-maroon-950/40" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-maroon-950/40 via-transparent to-maroon-950/40" />
+              </div>
             </motion.div>
 
             <div className="mt-8 rounded-3xl border border-gold-500/20 bg-maroon-900/40 p-6 backdrop-blur-md">

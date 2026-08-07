@@ -66,13 +66,18 @@ export function WhyChooseUs() {
               Healthcare organizations do not need another vendor — they need a partner
               who is measured on the same financial outcomes they are.
             </p>
-            <div className="mt-8 overflow-hidden rounded-3xl border border-maroon-800/10 bg-maroon-50/40">
-              <img
-                src={SECURITY_IMAGE}
-                alt="Illustration of protected patient data and HIPAA-aligned security controls"
-                className="h-64 w-full object-cover" />
+            <div className="mt-8 overflow-hidden rounded-3xl border border-maroon-800/10 bg-white p-2 shadow-lift">
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-maroon-50/60 to-white">
+                <img
+                  src={SECURITY_IMAGE}
+                  alt="Illustration of protected patient data and HIPAA-aligned security controls"
+                  className="h-64 w-full object-cover mix-blend-multiply opacity-90 transition-transform duration-700 hover:scale-105 [mask-image:radial-gradient(ellipse_at_center,black_75%,transparent_100%)]" />
+                
+                {/* Soft gradient edge fade */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+              </div>
               
-              <div className="p-6">
+              <div className="p-5">
                 <p className="font-display text-sm font-bold text-maroon-950">
                   Security &amp; compliance by default
                 </p>

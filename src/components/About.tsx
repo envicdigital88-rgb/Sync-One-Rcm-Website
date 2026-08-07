@@ -105,11 +105,14 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:pt-6">
             
-            <div className="group overflow-hidden rounded-3xl border border-maroon-800/15 shadow-lift">
+            <div className="relative group overflow-hidden rounded-3xl shadow-[0_20px_50px_-10px_rgba(91,6,38,0.18)] border border-maroon-800/10">
               <img
                 src={ABOUT_IMAGE}
                 alt="SyncOne RCM billing specialists collaborating on claims data"
-                className="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-80" />
+                className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-84 [mask-image:radial-gradient(ellipse_at_center,black_85%,transparent_100%)]" />
+              
+              {/* Soft vignette overlay blending with section background */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-maroon-950/30 via-transparent to-transparent opacity-80" />
             </div>
 
             <div className="mt-8 rounded-3xl border border-maroon-800/10 bg-white p-7 shadow-soft">
